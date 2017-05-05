@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='app'>
+			<p :style="{color:'red'}">1. text</p>
+			   <p>{{missge}}</p>
+			   <input type="text" v-model="missge" />
+			   
+			   
+			<p :style="{color:'red'}">2. checkbox</p>   
+			   <p>{{arr}}</p>
+			   <input type="checkbox" value="long" v-model="arr"/>
+			   <input type="checkbox" value="xiu" v-model="arr"/>
+			   <input type="checkbox" value="zhen" v-model="arr"/>
+			   
+			   
+			<p :style="{color:'red'}">3. radio</p>  
+			   <p>{{arr1}}</p>
+			   <input type="radio" value="yunyu" v-model="arr1"/>
+			   <input type="radio" value="xiaoyixian" v-model="arr1"/>
+			   <input type="radio" value="cailin" v-model="arr1"/>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				missge:'',
+				arr:[],
+				arr1:'',
+			},
+			methods:{
+				
+			}
+		})
+	</script>
+</html>

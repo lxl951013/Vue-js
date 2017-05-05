@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='app'>
+		  <p>{{name}}</p>
+		  
+		  <p>{{num}}</p>
+		  
+		  <p>{{arr[1]}}</p>
+		  
+		  <p>{{b}}</p>
+		  
+		  
+		  
+		  
+		  
+		  <button @click="click()">OK</button>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		new Vue({
+			//大作用域
+			el:"#app",
+			//数据
+			data:{
+				name:"xiuxiu",
+				num:1123,
+				arr:['a','b','c'],
+				bool:true,
+				obj:[{
+					n:'long',
+					skill:'ps',
+				  },{
+					n:'xiu',
+					skill:'kiss',
+				   }					
+				]
+				
+			},
+			//事件
+			methods:{
+				click:function(){
+					alert('longlong')
+				}				
+			},
+			//计算属性
+			computed:{
+				b:function(){
+					return this.num+99
+				}
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	  <div id="demo1" style="border:1px solid red">
+	  	 <p>{{name}}</p>
+	  	 <button @click="click()">OK</button>
+	  </div>
+	  <div id="demo2" style="border:1px solid blue">
+	  	  <p>{{name}}</p>
+	  	  <button @click="click()">OK</button>
+	  </div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		(function(){
+			var click=function(){
+				console.log(666)
+			}
+			new Vue({
+				el:'#demo1',
+				data:{
+					name:'xiuxiu',
+					skill:'English',
+				},
+                methods:{
+                    click:click
+                }
+			});
+			new Vue({
+				el:'#demo2',
+				data:{
+					name:'meizhen',
+					skill:'picth',
+				},
+                methods:{
+                  click:click
+                }
+			});
+		})()
+	</script>
+</html>

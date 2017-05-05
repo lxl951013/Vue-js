@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<div id="app1" style="border:1px solid red">
+		<p>{{name}}</p>
+		<first-compenent></first-compenent>
+	</div>
+	<div id="app2" style="border:1px solid red">
+		<p>{{name}}</p>
+		<first-compenent></first-compenent>
+	</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script type="text/template" id="tpl">
+		<p>这是第一个组件</p>
+        <second-compenent></second-compenent>
+
+	</script>
+	<script>
+		var ccc=Vue.extend({
+            template:"<p>这是第三个组件</p>"
+		});
+		
+        var bbb=Vue.extend({
+            template:"<p>这是第二个组件</p><third-compenent></third-compenent>",
+            components:{
+            	thirdCompenent:ccc
+            }
+		});
+
+
+		var aaa=Vue.extend({
+			template:'#tpl',
+			components:{
+				secondCompenent:bbb,
+
+			}
+		});
+		
+
+		new Vue({
+			el:"#app1",
+			data:{
+				name:'组件1',
+			},
+			methods:{},
+			components:{
+				firstCompenent:aaa,
+			}
+		});
+		new Vue({
+			el:"#app2",
+			data:{
+				name:'组件2',
+			},
+			methods:{},
+			components:{
+				firstCompenent:aaa,
+			}
+		});
+	</script>
+</html>
