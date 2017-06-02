@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<div id="app1" style="border:1px solid red">
+	    <p>{{name}}</p>
+		<first-compenent></first-compenent>
+		<second-cp></second-cp>
+	</div>
+	<div id="app2" style="border:1px solid blue">
+	    <p>{{name}}</p>
+		<!-- <first-compenent></first-compenent> -->
+	</div>
+
+	<div id="app3" style="border:1px solid orange">
+	    <p>{{name}}</p>
+		<three-cp></three-cp>
+	</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+		//方法一 
+		//1.构造器定义  
+		var aaa=Vue.extend({
+			template:"<p>第一个组件</p>"
+		});
+		
+		//2.注册(全局注册，其他作用域可调用)
+       // Vue.component('firstCompenent',aaa);
+
+
+		//方法二
+		Vue.component('secondCp',{
+			template:`
+			     <div style="border:1px solid skyblue">
+			        <p>{{name}}</p>
+			        <button @click="btn()">OK</button>
+			     </div>
+			     <style>
+			        p{
+			        	color:red;
+			        }
+			     </style>
+			`,
+			data:function(){ //可能会要被复用，用函数
+				return {
+					name:'第二个组件'
+				}
+			},
+			methods:{
+				btn:function(){
+					console.log('第二个');
+				}
+			}
+		});
+
+
+
+		//方法三
+		new Vue({
+            el:'#app3',
+            data:{
+               name:'自定义组件3'
+            },
+            components:{
+               threeCp:{
+               	  template:"<p>第三个组件</p>"
+               }
+            },
+            methods:{
+
+            },
+		})
+
+		new Vue({
+			el:'#app1',
+			data:{
+               name:'自定义组件1',
+			},
+
+			//2.注册(局部注册，本作用域才可调用)
+			components:{
+				firstCompenent:aaa
+			},
+            methods:{
+
+            }
+		});
+		new Vue({
+			el:'#app2',
+			data:{
+               name:'自定义组件2',
+			},
+            methods:{
+
+            }
+		});
+		
+	</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p :style="{color:'red'}">过滤器：currency 货币显示</p>
+			   <p>{{num|currency '$'}}</p>
+			  
+
+			<p :style="{color:'red'}">过滤器：uppercase 转换为大写</p>
+			   <p>{{str|uppercase}}</p>
+
+
+
+			<p :style="{color:'red'}">过滤器：lowercase 转换为小写</p>
+			   <p>{{str|lowercase}}</p>
+
+
+			<p :style="{color:'red'}">过滤器：json 转换为JSON字符串</p>
+			   <p>{{obj|json}}</p>
+
+
+			<p :style="{color:'red'}">过滤器：capitalize 首字母大写</p>   
+			   <p>{{str|capitalize}}</p>
+
+
+			<p :style="{color:'red'}">过滤器：pluralize 末尾加S</p>
+			   <p>{{str|pluralize str}}</p>
+
+
+			<p :style="{color:'red'}">过滤器：debounce  事件延时</p>
+			   <button @click="btn()|debounce 2000">延时按钮</button>
+
+
+			<p :style="{color:'red'}">过滤器：orderBy 排序</p>
+			   <button @click="sort=-sort">排序</button>
+			   <select v-model="xunze">
+			   	   <option value="age">age</option>
+			   	   <option value="name">name</option>
+			   	   <option value="skill">skill</option>
+			   </select>
+			   <ul>
+			   	  <li v-for="arr in arrs|orderBy xunze sort">姓名：{{arr.name}}年龄：{{arr.age}}技能：{{arr.skill}}</li>
+			   </ul>
+
+
+			<p :style="{color:'red'}">过滤器：filterBy 筛选</p>
+			   <input type='text' v-model="serch">
+			   <ul>
+			   	  <li v-for="arr in arrs|filterBy serch in 'name'">姓名：{{arr.name}}年龄：{{arr.age}}技能：{{arr.skill}}</li>
+			   </ul>   
+
+
+			<p :style="{color:'red'}">过滤器：limitBy 分割</p>
+			   <p>{{str|limitBy 3 5}}</p>
+			   <ul>
+			   	  <li v-for="arr in arrs|limitBy 2 0">姓名：{{arr.name}}年龄：{{arr.age}}技能：{{arr.skill}}</li>
+			   </ul>
+		</div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script>
+		new Vue({
+			el:'#app',
+			data:{
+				num:21324354365476,
+				str:'aBcDeFgHiJk',
+				serch:'',
+				//排序
+				sort:99,
+				xunze:'',
+				obj:{
+					name:'yunyun',
+					skill:'fenzhijiyunsha',
+				},
+				arrs:[{
+					name:'xiuxiu',
+					age:18,
+					skill:'English',
+				},{
+					name:'meizhen',
+					age:17,
+					skill:'phone',
+				},{
+					name:'daidai',
+					age:20,
+					skill:'teacher',
+				}]
+			},
+			methods:{
+				btn:function(){
+					alert('8888')
+				}
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	   <div id="app">
+	   	  <p>{{str|ed}}</p>
+
+	   	  <input type="text" v-model="serch">
+	   	  <p v-html="data|guolv serch "></p>
+	   </div>
+	</body>
+	<script src="js/vue.js"></script>
+	<script type="text/javascript">
+	    //过滤器一
+	    Vue.filter('ed',function(value){
+	    	return value+"ed"
+	    });
+	    //过滤器二
+	    Vue.filter('guolv',function(input,value){
+	    	var arr=input.split(value);
+	    //	console.log(arr)
+	    	var output=arr.join("<span style='color:red'>"+value+"</span>");
+	    	return output;
+	    });
+		new Vue({
+			el:'#app',
+			data:{
+               str:'gougou',
+
+               serch:'',
+               data:'6.1号，这是愉快的儿童节，我清晰地记得，愚蠢的老谢牵着高冷老蓝出现在北京千锋大楼的阳台上...老谢很紧张',
+			},
+			methods:{
+
+			}
+		})
+	</script>
+</html>
