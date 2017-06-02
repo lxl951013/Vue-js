@@ -24,10 +24,11 @@
 
 
 ## 安装(Git)
-
+                                                                              
 克隆项目地址并下载（需要已安装[Git](https://git-scm.com/downloads)），[点击预览（移动端效果更佳）](https://stjw7098.github.io/vue-demo/public/#/index/list)
 ```
-git clone git@github.com:stjw7098/vue-demo.git
+git clone git@github.com:lxl951013/all-project.git
+
 ```
 定位到public文件夹，在浏览器打开index.html
 ```
